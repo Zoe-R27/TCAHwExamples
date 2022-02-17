@@ -7,7 +7,8 @@
 2. HW4Spring21.pdf是教授給我的規劃。
 3. 怎麽用：
   - 在你的terminal上，寫python3 rudd0083.py -p [port number]
-  - 然後，在你的Broswer上，寫 http://localhost:9001/myContacts.html
+  - 然後，在你的Broswer上，寫 http://localhost:[port number]/myContacts.html
+  - 我常用的[port number] 是9001
 4. 評論
   - 雖然你可以用Form Input來進入一個人的信息，但是不會把這個人的信息加入在My Contacts
   - 我的Google Maps的部分沒有功能性因爲我訂閲取消了。
