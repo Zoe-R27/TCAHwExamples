@@ -1,5 +1,6 @@
 # TCA Homework Examples
 
+如果你想用我的程式，首先，clone這個GitHub repository
 我有兩個作業例子:
 
 ### rudd0083HW4:
