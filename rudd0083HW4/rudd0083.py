@@ -23,6 +23,7 @@ NOT_FOUND = 'HTTP/1.1 404 NOT FOUND{}Connection: close{}{}'.format(CRLF, CRLF, C
 FORBIDDEN = 'HTTP/1.1 403 FORBIDDEN{}Connection: close{}{}'.format(CRLF, CRLF, CRLF)
 
 #head requests, get contents of text or html files
+# Given to me for class
 def get_contents(fname):
 	with open(fname, 'r') as f:
 		return f.read()
@@ -52,6 +53,7 @@ class HTTP_HeadServer:
 		self.sock.listen(128)
 
 #Refactored
+# I edited everything below this, though it is based off of examples given in class
 	def accept(self):
 		while True:
 			(client, address) = self.sock.accept()
