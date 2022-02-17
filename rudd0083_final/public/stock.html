@@ -1,0 +1,130 @@
+<!-- API Key: PAPA7MO9KBVHQ0B3 -->
+<!-- Zoe Rudd -->
+﻿<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      textarea {
+          width: 100%;
+          min-height: 30rem;
+          background-color: black;
+          font-family: "Lucida Console", Monaco, monospace;
+          font-size: 0.75 rem;
+          line-height: 1.2;
+          color: #fff;
+      }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+   	<div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li><a href="welcome.html"><b>Home</b></a></li>
+        <li><a href="contacts.html"><b>Contacts</b></a></li>
+        <li><a href="stock.html"><b>Stock Page</b></a></li>
+		<li><a href="/api/logout"><img src="logout_icon.png" style="height:5%; width:auto;"></a></li>
+      </ul>
+  	</div>
+	</nav>
+  <br><br>
+
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body"><center>Welcome to Stock Page</center></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <table class="table table-bordered table-hover">
+          <tbody>
+            <tr>
+              <td class="col-md-6">Company</td>
+              <td class="col-md-6">
+                <div class="form-group">
+                  <select name="Company" id="company">
+                    <option value="GME">Gamestop</option>
+                    <option value="MSFT">Microsoft</option>
+                    <option value="BA">Boeing Company</option>
+                    <option value="AAPL">Apple Inc</option>
+                    <option value="AMZN">Amazon</option>
+                    <option value="NVDA">NVIDIA Corporation</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <button type="button" onclick="createStock()">Get Data</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+      <div id="chartContainer"></div>
+  </div>
+
+  <div class="container">
+    <table class="table" id="StockData">
+      <thead>
+        <tr>
+          <th scope="col">Company-MetaData</th>
+          <th scope="col">Stock-Info</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td> <textarea id="metaData"></textarea></td>
+              <td> <textarea id="timeData"></textarea></td>
+
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function createStock() {
+      var apiKey = "PAPA7MO9KBVHQ0B3";
+      var company = document.getElementById("company").value;
+      var url = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + company + "&apikey=" + apiKey;
+
+      var xmlhttp = new XMLHttpRequest();
+    //	alert("Got here" + url);
+    	xmlhttp.open("GET", url, true);
+    	xmlhttp.send();
+    	xmlhttp.onreadystatechange = function() {
+    		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    		//	alert("Got response ok!!");
+    			var myArr = JSON.parse(xmlhttp.responseText);
+          var data = myArr["Meta Data"];
+          var time = myArr["Time Series (Daily)"];
+    		//	console.log(myArr);
+          document.getElementById("metaData").innerHTML = JSON.stringify(data, null, 2);
+          document.getElementById("timeData").innerHTML = JSON.stringify(time, null, 2);
+    		}
+
+    		//	alert(xmlhttp.status);
+    	}
+    }
+   /* TODO:
+   /    Bonus 1. Request the TIME_SERIES_DAILY endpoint of alphavantage API
+   /             for the company selected in the dropdown. Display the JSON
+   /             in the result according to the write up.
+   /    Bonus 2. Take the JSON from the alphavantage API and chart it to a
+   /             line chart using Chart.js to the chartContainer div. Ensure
+   /             the chart meets all requirements from the HW writeup.
+   /*/
+  </script>
+</body>
+</html>

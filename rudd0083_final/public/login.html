@@ -1,0 +1,109 @@
+<!doctype html>
+<!-- css for the login input portion taken from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> 
+    <!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
+    <title>Login</title>
+    <style type="text/css">
+        .jumbotron {
+            text-align: center;
+        }
+		input[type=text], input[type=password] {
+		  width: 75%;
+		  padding: 12px 20px;
+		  margin: 8px 0;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  box-sizing: border-box;
+		}
+
+		input[type=submit] {
+		  background-color: #3366ff;
+		  color: white;
+		  padding: 14px 20px;
+		  margin: 8px 0;
+		  border: none;
+		  width: 75%;
+		}
+
+    </style>
+</head>
+<!--
+<body>
+	<div class="jumbotron" style="background: DarkSeaGreen !important">
+		<h1>Login</h1>
+		<p>Please enter your user name and password. Both are case sensitive.</p>
+	</div>
+	<div>
+		<form id="myForm" name="myForm" action="/postLogin" method="post">
+			<div class="container">
+			<label for="uname"><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" name="uname" required>
+
+			<label for="psw"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="psw" required>
+				
+			<button type="submit">Login</button>
+		</form>
+		<p id="failed"></p>
+		<br/>
+		<br/>
+
+	</div>
+
+</body>
+-->
+<body> 
+	<div class="jumbotron" style="background: DarkSeaGreen !important">
+	<h1>Login</h1>
+	<p>Please enter your user name and password. Both are case sensitive.</p>
+	</div>	
+    <form id="myForm" name="myForm"> 
+		<div class="container">
+		<div> 
+		  <label for="login"><b>Login:</b></label> 
+		  <input type="text" id="login" name="login" placeholder="Enter Username" required> 
+		</div> 
+		<div> 
+		  <label for="password"><b>Password:</b></label> 
+		  <input type="password" id="password" name="password" placeholder="Enter Password" required> 
+		</div> 
+		<p id="failed" hidden>Incorrect Username or Password</p>
+		<input type="submit" value="Submit!"> 
+		</div>
+	</form>  
+	<script> 
+
+	$(document).ready(function () { 
+		$('#myForm').submit(function (event) {
+			event.preventDefault(); 
+			  //collect the form data using Id Selector for whatever data you need to send to server 
+			let login= $('#login').val();                         
+			let password= $('#password').val();                         
+			$.post('/api/postLogin', {"login": login, "password": password}, (data) => { 
+				console.log(data); 
+				if (data.status === 'success') { 
+					 //pseudo code 
+					 //Make sure error message is not displayed 
+					 //Re-direct to contacts page,    
+					$('#failed').hide();				 
+					window.location.href = '/contacts'; 
+				} 
+				else { 
+					// var str = "Incorrect Username or Password";
+					$('#failed').show();
+				} 
+			}); 
+
+		}); 
+	}); 
+	</script> 
+</body>
+
+</html>
