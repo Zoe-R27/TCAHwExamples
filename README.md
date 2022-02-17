@@ -1,7 +1,8 @@
 # TCA Homework Examples
 
-如果你想用我的程式，首先，clone這個GitHub repository
-我有兩個作業例子:
+- 如果你想用我的程式，首先，clone這個GitHub repository
+
+- 我有兩個作業例子:
 
 ### rudd0083HW4:
 1. 這是一個很簡單的網站程式。我用HTML、JS、和CSS。rudd0083.py是我的server file。
