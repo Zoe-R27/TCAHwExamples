@@ -20,12 +20,12 @@
 	</div>
 	<div class="grid-Form">
 		<div class="item1">
-			<form action = "http://localhost:9001" method="post" id="f1">
-				<table>		
+			<form action = "http://localhost:9001/myForms.html" method="post" id="f1">
+				<table>
 					<!-- input type = "text" inserts a text field -->
-					<tr>				
+					<tr>
 						<td><label for="name">Name:</label></td>
-						<td><input name="name" type="text" id="name" maxlength="30" 	
+						<td><input name="name" type="text" id="name" maxlength="30"
 							pattern="[A-Za-z0-9].{4,}" title="Contact's name must be alphanumeric"
 							placeholder = "Jane Doe" required></td>
 					</tr>
@@ -45,7 +45,7 @@
 							placeholder = "123 N. St Minneapolis MN 55414" size="25" required>
 						<!--	<script>
 								function init() {
-								var input = 
+								var input =
 								 document.getElementById('location');
 								var autocomplete =
 								 new google.maps.places.Autocomplete(input);
@@ -60,18 +60,18 @@
 					</tr>
 					<tr>
 						<td><label for="email">Email:</label></td>
-						<td><input type="email" id="email" name="email" 
-							pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+						<td><input type="email" id="email" name="email"
+							pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
 							title="Must be a valid email"
 							placeholder="janejoe@umn.edu" required></td>
 					</tr>
 					<tr>
 						<td><label for="website">Website:</label></td>
-						<td><input type="url" name="website" id="website" 
-						pattern="https?://.+" title="Include http://" 
+						<td><input type="url" name="website" id="website"
+						pattern="https?://.+" title="Include http://"
 						placeholder="https://website.com" required></td>
-					</tr>		
-					
+					</tr>
+
 				</table>
 				<!-- submit and reset insert buttons for submitting -->
 				<!-- and clearing the form's contents				-->
@@ -81,13 +81,13 @@
 				</p>
 			</form>
 		</div>
-		
+
 		<div class="item2">
 		<!-- <div id="map"></div> -->
 		<div id="infowindow-content">
 			  <img id="place-icon" src="img/folwell.jpg" height="16" width="16" alt="place"/>
 			  <span id="place-name" class="title"></span><br />
-			 
+
 			  <span id="place-address"></span>
 		</div>
 			<div id="mapForm"></div>
@@ -95,7 +95,7 @@
 					<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 					<script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC9ozTUWaQ4pdzkV6AJ7QMeCbIphQUuhGE&callback=initMapForm&libraries=places&v=weekly" defer></script>
 					<script src = "javascript/homework.js"></script>
-		</div>	
+		</div>
 	</div>
 </body>
 </html>

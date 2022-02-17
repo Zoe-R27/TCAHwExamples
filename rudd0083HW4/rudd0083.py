@@ -17,7 +17,7 @@ BUFSIZE = 4096
 
 #added macros
 CRLF = '\r\n'
-METHOD_NOT_ALLOWED = 'HTTP/1.1 405 METHOD NOT ALLOWED{}ALLOW: GET, HEAD, POST'
+METHOD_NOT_ALLOWED = 'HTTP/1.1 405 METHOD NOT ALLOWED{}ALLOW: GET, HEAD, POST'.format(CRLF)
 OK = 'HTTP/1.1 200 OK{}{}{}'.format(CRLF, CRLF, CRLF) # head request only
 NOT_FOUND = 'HTTP/1.1 404 NOT FOUND{}Connection: close{}{}'.format(CRLF, CRLF, CRLF)
 FORBIDDEN = 'HTTP/1.1 403 FORBIDDEN{}Connection: close{}{}'.format(CRLF, CRLF, CRLF)
@@ -89,6 +89,7 @@ class HTTP_HeadServer:
 			return self.post_request(resource)
 		else: #add ELIF checks for GET and POST before this else...
 			header = METHOD_NOT_ALLOWED
+			print(header)
 			result = bytes(header, 'utf-8')
 			# result += self.get_media_contents("./405.html")
 
@@ -170,7 +171,8 @@ class HTTP_HeadServer:
 		postString += '<meta name="viewport" content="width=device-width, initial-scale=1"></head>'
 		postString += '<body><h1>Following Form Data Submitted Successfully:</h1><table>'
 		content = resource.split('&')
-		print (resource)
+		# print (resource)
+		# Create the table
 		for piece in content:
 			postString += '<tr>'
 			separate = piece.split('=')
