@@ -4,6 +4,7 @@ TO DO:
 READ ALL COMMENTS AND REPLACE VALUES ACCORDINGLY
 */
 
+// Given to me from my professor
 const mysql = require("mysql");
 
 const dbCon = mysql.createConnection({

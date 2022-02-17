@@ -4,6 +4,7 @@ TO DO:
 READ ALL COMMENTS AND REPLACE VALUES ACCORDINGLY
 */
 // mysql://bd2c45c87c32f9:ad2f3e90@us-cdbr-east-03.cleardb.com/heroku_02c5269b9d2e472?reconnect=true
+// Given to me from my professor
 const mysql = require("mysql");
 
 const dbCon = mysql.createConnection({
@@ -28,7 +29,7 @@ dbCon.connect(function (err) {
         acc_password VARCHAR(200),
         PRIMARY KEY (acc_id)
     )`;
-    
+
     console.log("Attempting to create table: tbl_accounts");
     dbCon.query(sql, function (err, result) {
         if (err) {
