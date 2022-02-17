@@ -1,0 +1,154 @@
+<!-- Zoe Rudd, rudd0083 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>My Contacts</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="javascript/homework.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="addMarkers()">
+	<!-- Links to pages -->
+	<div>
+		<nav>
+			<a href="myContacts.html">My Contacts</a>
+			<a href="myForms.html">Form Input</a>
+			<a href="myWidgets.html">My Widgets</a>
+			<a href="MyServer.html">My Server</a>
+		</nav>
+	</div>
+
+	<!-- Start of My Contacts page -->
+	<h1>My University Contacts</h1>
+	<div>
+		<div>
+			<div class="container">
+				<img id="cImg" src="img/gophers-mascot.png" alt="Gopher Mascot">
+				<button id="btn1" onclick="pickImage()">I'm Feeling Lucky</button>
+				<button id="btn2" onclick="spin()">I'm Feeling Dizzy</button>
+			</div>
+		</div>
+		<div>
+			<!-- Contacts Table -->
+			<table>
+				<tr>
+					<th>Name</th>
+					<th>Category</th>
+					<th>Location</th>
+					<th>Contact Information</th>
+					<th>email</th>
+					<th>Website</th>
+				</tr>
+
+				<tr onmouseover="mouseOver('img1')" onmouseout="mouseOut('img1')">
+					<td>Ms. Jill Adams</td>
+					<td>Academic</td>
+					<td>390 Northrop<br>84 Church Street SE<br>Minneapolis, MN 55455</td>
+					<td>
+						<p>Senior Academic Advisor</p><br>
+						<img id="img1" class="hidden" src="img/northrop.jpg" alt="Northrop Hall">
+					</td>
+					<td><a href="mailto:meil0008@umn.edu">meil0008@umn.edu</a></td>
+					<td><a href="https://honors.umn.edu/about/uhp-staff">UHP Staff</a></td>
+				</tr>
+
+				<tr onmouseover="mouseOver('img2')" onmouseout="mouseOut('img2')">
+					<td>Ms. Kelly Thomas</td>
+					<td>Academic</td>
+					<td>4-196C Keller Hall<br>200 Union St SE<br>Minneapolis, MN 55455</td>
+					<td>
+						<p>Senior Undergraduate Academic Advisor</p><br>
+						<img id="img2" class="hidden" src="img/keller.jpg" alt="Keller Hall">
+					</td>
+					<td><a href="mailto:kmthomas@umn.edu">kmthomas@umn.edu</a></td>
+					<td><a href="https://cse.umn.edu/datascience/undergraduate-advising">CSE Undergraduate Advising</a></td>
+				</tr>
+
+				<tr onmouseover="mouseOver('img3')" onmouseout="mouseOut('img3')">
+					<td>Ms. Claudia Hasegawa</td>
+					<td>Academic</td>
+					<td>220A Folwell Hall<br>9 Pleasant St SE<br>Minneapolis, MN 55455</td>
+					<td><p>Senior Academic Advisor</p><br>
+						<img id="img3" class="hidden" src="img/folwell.jpg" alt="Folwell Hall">
+					</td>
+					<td><a href="mailto:haseg002@umn.edu">haseg002@umn.edu</a></td>
+					<td><a href="https://cla.umn.edu/asian-middle-eastern-studies/undergraduate/advising">AMES Advising</a></td>
+				</tr>
+
+				<tr onmouseover="mouseOver('img4')" onmouseout="mouseOut('img4')">
+					<td>Mr. James Moen</td>
+					<td>Academic</td>
+					<td>Room 325 Shepherd Labs<br>100 Union St SE<br>Minneapolis, MN 55455</td>
+					<td>
+						<p>Computer Science Lecturer</p><br>
+						<img id="img4" class="hidden" src="img/Shepherd.jpg" alt="Shepherd Hall">
+					</td>
+					<td><a href="mailto:moen0017@umn.edu">moen0017@umn.edu</a></td>
+					<td><a href="https://cse.umn.edu/cs/james-moen">CSE Contact Page</a></td>
+				</tr>
+
+				<tr onmouseover="mouseOver('img5')" onmouseout="mouseOut('img5')">
+					<td>Ms. Yao Tu</td>
+					<td>Academic</td>
+					<td>220 Folwell Hall<br>9 Pleasant St SE<br>Minneapolis, MN 55455</td>
+					<td><p>Associate Director, Chinese Flagship</p><br>
+						<img id="img5" class="hidden" src="img/folwell.jpg" alt="Folwell Hall">
+					</td>
+					<td><a href="mailto:ytu@umn.edu">ytu@umn.edu</a></td>
+					<td><a href="https://cla.umn.edu/asian-middle-eastern-studies/people/faculty">AMES Faculty Pages</a></td>
+				</tr>
+			</table>
+		</div>
+		<div class="flex-container">
+			<!-- <div id="right-panel"></div> -->
+			<div id="childDiv">
+				<div id="map"></div>
+				<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+				<script src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC9ozTUWaQ4pdzkV6AJ7QMeCbIphQUuhGE&callback=initMap&libraries=places&v=weekly" defer></script>
+				<script src = "javascript/homework.js"></script>
+			</div>
+			<div>
+				<div id="mapSearch">
+				<form onsubmit = "searchLocation();return false;">
+					<label for="Find">Find:</label>
+					<select id="Find" onchange="ifOther()" required>
+						<option value="">Please Choose a Place</option>
+						<option value="restaurant">Restaurant</option>
+						<option value="library">Library</option>
+						<option value="light_rail_station">Light Rail Stations</option>
+						<option value="bus_station">Bus Stops</option>
+						<option value="hospital">Hospital</option>
+						<option value="other">Other</option>
+					</select><br>
+					<label for="otherFind"></label>
+					<input type="text" name="otherFind" id="otherFind" placeholder="Enter Other Places" disabled><br>
+					<label for="radius">In</label>
+					<input type="text" id="radius" name="radius" placeholder="500"
+						title="Enter a Number" pattern="[0-9]*" required> meters<br>
+					<input type = "submit" value = "Search" >
+				</form>
+				</div>
+				<div>
+					<form onsubmit = "direction(); return false;">
+						<label for="direc">Directions to: </label><br>
+						<input type="text" name="direc" id="direc" placeholder="Enter Places" required><br>by<br>
+						<div id="transportation">
+							<input type="radio" id="walk" name="transport" value="WALKING">
+							<label for="walk">WALK</label><br>
+							<input type="radio" id="drive" name="transport" value="DRIVING">
+							<label for="drive">DRIVE</label><br>
+							<input type="radio" id="trans" name="transport" value="TRANSIT">
+							<label for="trans">TRANSIT</label><br>
+							<input type="radio" id="bike" name="transport" value="BICYCLING">
+							<label for="bike">BIKE</label>
+
+						</div>
+						<input type = "submit" value = "Go" >
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

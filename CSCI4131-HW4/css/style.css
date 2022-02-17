@@ -1,0 +1,219 @@
+/*Zoe Rudd, rudd0083 */
+/* CSS file for HW3 */
+
+* {
+	font-family: "Times New Roman", Times, serif;
+}
+
+h1 {
+	color: #FFFFFF;
+}
+
+body {
+	background-color: #2F4F4F
+}
+
+nav {
+	background-color: #f5b832;
+	background-image: linear-gradient(to right, #f5b832, #663300);
+	padding: 1.25em;
+	color: #FFFFFF;
+}
+
+li {
+	color: #FFFFFF;
+}
+
+/*Table Style*/
+table,th, td {
+	border-collapse: collapse;
+	border: 1.5px solid black;
+	text-align: left;
+}
+tr:nth-child(even) {background-color: #DCDCDC;}
+tr:nth-child(odd) {background-color: #FFFFFF;}
+
+/*Image Work*/
+/*# = id for specific thing*/
+/*. = class for more grouping*/
+/*
+#cImg {
+	width: 30%;
+	height: auto;
+	float: right;
+	padding: 2vw;
+	padding-top: 1.5vw;
+}
+*/
+
+img.hidden {
+	display: none;
+	width: 6.25em;
+	height: auto;
+	padding: .3125em;
+}
+
+.container {
+	position: relative;
+	width: 30%;
+	max-height: 30%;
+	float: right;
+}
+
+.container img {
+	width: 100%;
+	height: auto;
+	float: right;
+	padding: 2vw;
+	padding-top: .1vw;	
+}
+
+.container #btn1 {
+	position: absolute;
+	top: 95%;
+	left: 50%;
+	
+}
+.container #btn2 {
+	position: absolute;
+	top: 95%;
+	left: 10%;
+}
+/*Map Contact Work*/
+
+#map {
+	float: left;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	height: 25vw;
+	width: 60vw;
+	position: relative;
+	display: block;
+	visibility: visible;
+}
+
+#right-panel {
+	font-family: "Roboto", "sans-serif";
+	padding-left: 10px;
+	max-height: 28vw;
+ }
+	  
+#right-panel select,
+#right-panel input {
+	font-size: 15px;
+}
+
+#right-panel select {
+	width: 100%;
+}
+
+#right-panel i {
+	font-size: 12px;
+}
+
+#right-panel {
+	height: 100%;
+	float: right;
+	width: 390px;
+	overflow: scroll;
+}
+
+.flex-container {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: row;
+	background-color: #FFFFFF;
+
+}
+
+
+/*Form Work*/
+
+#f1{
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 80px;
+	width: 30%;
+	background-color: #800000;
+	border-color: #000000;
+	border-style:ridge;
+	border-width: medium; 
+	border-radius: 1.5625em;
+	margin: auto;
+}
+
+#bt1{
+	position: absolute;
+	top: 92%;
+	left: 30%;
+}
+
+#bt2{
+	position: absolute;
+	top: 92%;
+	left: 60%;
+}
+
+#mapSearch {
+	float: right; 
+}
+/*
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+*/
+label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+   
+}
+.grid-Form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1vw;
+  padding: 1em;
+}
+
+.grid-Form > div {
+  text-align: center;
+  padding: 20px 0;
+}
+/*Map Forms Work*/
+#mapForm {	
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	height: 25vw;
+	width: 25vw;
+	position: relative;
+	display: block;
+	visibility: visible;
+}
+
+/*Grid work for widget*/
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 1em;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/*Extra Credit*/
+
+#infowindow-content {
+  display: none;
+}
+
+#mapForm #infowindow-content {
+  display: inline;
+}
+
+
+
